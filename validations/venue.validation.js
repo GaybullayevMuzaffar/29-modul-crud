@@ -6,7 +6,7 @@ const createVenueSchema = Joi.object({
   location: Joi.string().allow("", null).optional(),
   site: Joi.string().uri().allow("", null).optional(),
   phone: Joi.string().allow("", null).optional(),
-  schema: Joi.object().allow(null).optional(),
+  schema: Joi.string().allow(null).optional(),
   region_id: Joi.number().integer().positive().required(),
   district_id: Joi.number().integer().positive().required(),
 });
@@ -17,7 +17,7 @@ const updateVenueSchema = Joi.object({
   location: Joi.string().allow("", null),
   site: Joi.string().uri().allow("", null),
   phone: Joi.string().allow("", null),
-  schema: Joi.object().allow(null),
+  schema: Joi.string().allow(null),
   region_id: Joi.number().integer().positive(),
   district_id: Joi.number().integer().positive(),
 }).min(1);

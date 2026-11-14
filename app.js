@@ -11,91 +11,91 @@ app.use(cors({ origin: "*" }));
 
 // ROUTES \\
 const countryRoutes = require("./routes/country.routes");
-app.use("/countries", countryRoutes);
+app.use("/api/countries", countryRoutes);
 
 const regionRoutes = require("./routes/region.routes");
-app.use("/regions", regionRoutes);
+app.use("/api/regions", regionRoutes);
 
 const districtRoutes = require("./routes/district.routes");
-app.use("/districts", districtRoutes);
+app.use("/api/districts", districtRoutes);
 
 const adminRoutes = require("./routes/admin.routes");
-app.use("/admins", adminRoutes);
+app.use("/api/admins", adminRoutes);
 
 const customerRoutes = require("./routes/customer.routes");
-app.use("/customers", customerRoutes);
+app.use("/api/customers", customerRoutes);
 
 const eventRoutes = require("./routes/event.routes");
-app.use("/events", eventRoutes);
+app.use("/api/events", eventRoutes);
 
 const eventTypeRoutes = require("./routes/event_type.routes");
-app.use("/event-types", eventTypeRoutes);
+app.use("/api/event-types", eventTypeRoutes);
 
 const humanCategoryRoutes = require("./routes/human_category.routes");
-app.use("/human-categories", humanCategoryRoutes);
+app.use("/api/human-categories", humanCategoryRoutes);
 
 const genderRoutes = require("./routes/gender.routes");
-app.use("/genders", genderRoutes);
+app.use("/api/genders", genderRoutes);
 
 const langRoutes = require("./routes/lang.routes");
-app.use("/langs", langRoutes);
+app.use("/api/langs", langRoutes);
 
 const venueRoutes = require("./routes/venue.routes");
-app.use("/venues", venueRoutes);
+app.use("/api/venues", venueRoutes);
 
 const venuePhotoRoutes = require("./routes/venue_photo.routes");
-app.use("/venue-photos", venuePhotoRoutes);
+app.use("/api/venue-photos", venuePhotoRoutes);
 
 const venueTypesRoutes = require("./routes/venue_types.routes");
-app.use("/venue-types", venueTypesRoutes);
+app.use("/api/venue-types", venueTypesRoutes);
 
 const typesRoutes = require("./routes/types.routes");
-app.use("/types", typesRoutes);
+app.use("/api/types", typesRoutes);
 
 const sectorRoutes = require("./routes/sector.routes");
-app.use("/sectors", sectorRoutes);
+app.use("/api/sectors", sectorRoutes);
 
 const seatTypeRoutes = require("./routes/seat_type.routes");
-app.use("/seat-types", seatTypeRoutes);
+app.use("/api/seat-types", seatTypeRoutes);
 
 const seatRoutes = require("./routes/seat.routes");
-app.use("/seats", seatRoutes);
+app.use("/api/seats", seatRoutes);
 
 const ticketRoutes = require("./routes/ticket.routes");
-app.use("/tickets", ticketRoutes);
+app.use("/api/tickets", ticketRoutes);
 
 const ticketStatusRoutes = require("./routes/ticket_status.routes");
-app.use("/ticket-statuses", ticketStatusRoutes);
+app.use("/api/ticket-statuses", ticketStatusRoutes);
 
 const ticketTypeRoutes = require("./routes/ticket_type.routes");
-app.use("/ticket-types", ticketTypeRoutes);
+app.use("/api/ticket-types", ticketTypeRoutes);
 
 const bookingRoutes = require("./routes/booking.routes");
-app.use("/bookings", bookingRoutes);
+app.use("/api/bookings", bookingRoutes);
 
 const paymentMethodRoutes = require("./routes/payment_method.routes");
-app.use("/payment-methods", paymentMethodRoutes);
+app.use("/api/payment-methods", paymentMethodRoutes);
 
 const deliveryMethodRoutes = require("./routes/delivery_method.routes");
-app.use("/delivery-methods", deliveryMethodRoutes);
+app.use("/api/delivery-methods", deliveryMethodRoutes);
 
 const discountRoutes = require("./routes/discount.routes");
-app.use("/discounts", discountRoutes);
+app.use("/api/discounts", discountRoutes);
 
 const cartRoutes = require("./routes/cart.routes");
-app.use("/carts", cartRoutes);
+app.use("/api/carts", cartRoutes);
 
 const cartItemRoutes = require("./routes/cart_item.routes");
-app.use("/cart-items", cartItemRoutes);
+app.use("/api/cart-items", cartItemRoutes);
 
 const customerCardRoutes = require("./routes/customer_card.routes");
-app.use("/customer-cards", customerCardRoutes);
+app.use("/api/customer-cards", customerCardRoutes);
 
 const customerAddressRoutes = require("./routes/customer_address.routes");
-app.use("/customer-addresses", customerAddressRoutes);
+app.use("/api/customer-addresses", customerAddressRoutes);
 
 const flatRoutes = require("./routes/flat.routes");
-app.use("/flats", flatRoutes);
+app.use("/api/flats", flatRoutes);
 
 
 // SWAGGER \\

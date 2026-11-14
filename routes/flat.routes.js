@@ -1,5 +1,6 @@
 
-const router = require("express").Router();
+const express = require("express");
+const router = express.Router();
 
 const {
   createFlat,
@@ -9,25 +10,25 @@ const {
   deleteFlat,
 } = require("../controllers/flat.controller");
 
+const validate = require("../middlewares/validate.middleware");
+
 const {
   createFlatSchema,
   updateFlatSchema,
 } = require("../validations/flat.validation");
 
-const validate = require("../middlewares/validate.middleware");
-
 /**
  * @swagger
  * tags:
  *   name: Flats
- *   description: Flat CRUD API
+ *   description: Flat management
  */
 
 /**
  * @swagger
  * /api/flats:
  *   post:
- *     summary: Yangi flat yaratish
+ *     summary: Create a flat
  *     tags: [Flats]
  *     requestBody:
  *       required: true
@@ -40,23 +41,29 @@ const validate = require("../middlewares/validate.middleware");
  *                 type: string
  *     responses:
  *       201:
- *         description: Flat yaratildi
+ *         description: Flat created
  *       400:
- *         description: Validatsiya xatosi
- *
+ *         description: Validation error
+ */
+router.post("/", validate(createFlatSchema), createFlat);
+
+/**
+ * @swagger
+ * /api/flats:
  *   get:
- *     summary: Barcha flatlarni olish
+ *     summary: Get all flats
  *     tags: [Flats]
  *     responses:
  *       200:
- *         description: Flatlar ro'yxati
+ *         description: List of flats
  */
+router.get("/", getAllFlats);
 
 /**
  * @swagger
  * /api/flats/{id}:
  *   get:
- *     summary: ID orqali flatni olish
+ *     summary: Get a flat by ID
  *     tags: [Flats]
  *     parameters:
  *       - in: path
@@ -66,12 +73,17 @@ const validate = require("../middlewares/validate.middleware");
  *           type: integer
  *     responses:
  *       200:
- *         description: Flat topildi
+ *         description: Flat found
  *       404:
- *         description: Flat topilmadi
- *
+ *         description: Flat not found
+ */
+router.get("/:id", getFlatById);
+
+/**
+ * @swagger
+ * /api/flats/{id}:
  *   put:
- *     summary: Flat ma'lumotlarini yangilash
+ *     summary: Update a flat
  *     tags: [Flats]
  *     parameters:
  *       - in: path
@@ -88,17 +100,21 @@ const validate = require("../middlewares/validate.middleware");
  *             properties:
  *               name:
  *                 type: string
- *                 example: "2-xonadon"
  *     responses:
  *       200:
- *         description: Flat yangilandi
+ *         description: Flat updated
  *       400:
- *         description: Validatsiya xatosi
+ *         description: Validation error
  *       404:
- *         description: Flat topilmadi
- *
+ *         description: Flat not found
+ */
+router.put("/:id", validate(updateFlatSchema), updateFlat);
+
+/**
+ * @swagger
+ * /api/flats/{id}:
  *   delete:
- *     summary: Flatni o'chirish
+ *     summary: Delete a flat
  *     tags: [Flats]
  *     parameters:
  *       - in: path
@@ -108,15 +124,10 @@ const validate = require("../middlewares/validate.middleware");
  *           type: integer
  *     responses:
  *       200:
- *         description: Flat o'chirildi
+ *         description: Flat deleted
  *       404:
- *         description: Flat topilmadi
+ *         description: Flat not found
  */
-
-router.post("/", validate(createFlatSchema), createFlat);
-router.get("/", getAllFlats);
-router.get("/:id", getFlatById);
-router.put("/:id", validate(updateFlatSchema), updateFlat);
 router.delete("/:id", deleteFlat);
 
 module.exports = router;
